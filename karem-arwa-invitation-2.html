@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>كارم وأروى | دعوة زفاف</title>
+
+    <!-- ================= FONTS ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    font-family: 'Poppins', 'Amiri', sans-serif;
+
+    background: #080706;
+
+    color: #f5ead7;
+
+    overflow: hidden;
+
+    -webkit-tap-highlight-color: transparent;
+
+    overscroll-behavior-y: none;
+
+}
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root {
+
+    --gold: #d4af37;
+
+    --light-gold: #f4e4bd;
+
+    --champagne: #f6e7c1;
+
+    --soft-gold: #b99855;
+
+    --white-gold: #fff9e9;
+
+}
+
+
+/* =========================================================
+   BACKGROUND VIDEO
+========================================================= */
+
+#bg-layer {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 2s ease,
+        transform 8s ease;
+
+    pointer-events: none;
+
+}
+
+#bg-layer.show {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+/* VERY LIGHT overlay */
+
+#bg-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.15),
+            rgba(0,0,0,.35)
+        );
+
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 4;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 1.5s ease;
+
+}
+
+.welcome-overlay.show {
+
+    opacity: 1;
+
+}
+
+.welcome-overlay h1 {
+
+    font-family:
+        'Playfair Display',
+        'Amiri',
+        serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(
+            1.7rem,
+            7vw,
+            3.5rem
+        );
+
+    color: var(--light-gold);
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 25px
+        rgba(212,175,55,.55),
+
+        0 0 70px
+        rgba(0,0,0,.75);
+
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.cover {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+
+            #251d14 0%,
+
+            #100c09 45%,
+
+            #050403 100%
+        );
+
+    transition:
+        transform 1.8s
+        cubic-bezier(
+            .77,
+            0,
+            .18,
+            1
+        ),
+
+        opacity 1.2s ease;
+
+    transform-origin: top center;
+
+}
+
+.cover.hidden {
+
+    transform: scaleY(0);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   COVER CONTENT
+========================================================= */
+
+.cover-content {
+
+    position: relative;
+
+    text-align: center;
+
+    padding: 30px;
+
+    z-index: 15;
+
+}
+
+
+/* SMALL TITLE */
+
+.cover-small {
+
+    font-family:
+        'Playfair Display',
+        'Amiri',
+        serif;
+
+    font-size: .8rem;
+
+    letter-spacing: 2px;
+
+    color: var(--soft-gold);
+
+    margin-bottom: 20px;
+
+}
+
+
+/* NAMES */
+
+.cover-names {
+
+    direction: ltr;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            4rem,
+            17vw,
+            7rem
+        );
+
+    color: var(--champagne);
+
+    line-height: 1;
+
+    margin-bottom: 42px;
+
+    text-shadow:
+        0 0 35px
+        rgba(212,175,55,.25);
+
+}
+
+
+/* =========================================================
+   OPEN BUTTON
+========================================================= */
+
+.btn-open {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--gold);
+
+    border-radius: 60px;
+
+    padding: 16px 38px;
+
+    background:
+        rgba(
+            212,
+            175,
+            55,
+            .06
+        );
+
+    color: var(--light-gold);
+
+    font-family:
+        'Amiri',
+        'Poppins',
+        sans-serif;
+
+    font-size: .95rem;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 35px
+        rgba(212,175,55,.10);
+
+    transition:
+        transform .3s ease;
+
+    -webkit-appearance: none;
+
+    appearance: none;
+
+}
+
+.btn-open::before {
+
+    content: '';
+
+    position: absolute;
+
+    top: -100%;
+
+    left: -100%;
+
+    width: 300%;
+
+    height: 300%;
+
+    background:
+        linear-gradient(
+            120deg,
+
+            transparent 40%,
+
+            rgba(255,255,255,.28),
+
+            transparent 60%
+        );
+
+    transform:
+        translateX(-40%);
+
+    animation:
+        buttonShine 5s infinite;
+
+}
+
+@keyframes buttonShine {
+
+    0% {
+        transform: translateX(-60%);
+    }
+
+    35% {
+        transform: translateX(60%);
+    }
+
+    100% {
+        transform: translateX(60%);
+    }
+
+}
+
+.btn-open span {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.btn-open:active {
+
+    transform: scale(.95);
+
+}
+
+
+/* =========================================================
+   PULL UP
+========================================================= */
+
+.swipe-hint {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 28px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 60;
+
+    text-align: center;
+
+    color: var(--light-gold);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease;
+
+    text-shadow:
+        0 0 20px
+        rgba(212,175,55,.7);
+
+}
+
+.swipe-hint.show {
+
+    opacity: 1;
+
+}
+
+.swipe-arrow {
+
+    font-size: 2.6rem;
+
+    line-height: 1;
+
+    animation:
+        arrowMove
+        1.4s
+        infinite
+        ease-in-out;
+
+}
+
+@keyframes arrowMove {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(8px);
+
+        opacity: .45;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+        opacity: 1;
+
+    }
+
+}
+
+.swipe-title {
+
+    margin-top: 8px;
+
+    font-size: .8rem;
+
+    letter-spacing: 3px;
+
+    font-family: 'Amiri', serif;
+
+}
+
+
+/* =========================================================
+   INVITATION CONTENT
+========================================================= */
+
+.inner-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        75px 20px 90px;
+
+    margin-top: 100vh;
+
+    color: var(--white-gold);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            160deg,
+
+            rgba(8,6,5,.55),
+
+            rgba(25,18,14,.65)
+        );
+
+    backdrop-filter: blur(2px);
+
+    -webkit-backdrop-filter: blur(2px);
+
+    transition:
+        margin-top 1.8s
+        cubic-bezier(
+            .22,
+            1,
+            .36,
+            1
+        );
+
+    overflow: hidden;
+
+}
+
+.inner-content.visible {
+
+    margin-top: 0;
+
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.inner-content h2 {
+
+    direction: ltr;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(
+            3.2rem,
+            12vw,
+            5.8rem
+        );
+
+    font-weight: 400;
+
+    color: var(--champagne);
+
+    line-height: 1.1;
+
+    text-shadow:
+
+        0 2px 12px
+        rgba(0,0,0,.75),
+
+        0 0 25px
+        rgba(212,175,55,.35);
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.sub-date {
+
+    direction: ltr;
+
+    margin-top: 12px;
+
+    color: #e0c27b;
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 1.1rem;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.8);
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider {
+
+    width: 120px;
+
+    height: 1px;
+
+    margin: 35px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            transparent,
+
+            var(--gold),
+
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(212,175,55,.4);
+
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+
+    max-width: 600px;
+
+    margin:
+        20px auto 35px;
+
+    font-family:
+        'Amiri',
+        serif;
+
+    font-size: 1.2rem;
+
+    line-height: 2.2;
+
+    color: #fff4df;
+
+    font-style: italic;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.8);
+
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.section-heading {
+
+    margin-top: 10px;
+
+    font-family: 'Amiri', serif;
+
+    font-weight: 700;
+
+    font-size: 1.5rem;
+
+    color: var(--champagne);
+
+    text-shadow: 0 2px 10px rgba(0,0,0,.8);
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-status {
+
+    margin-top: 20px;
+
+    font-family:
+        'Amiri',
+        serif;
+
+    font-size: .95rem;
+
+    letter-spacing: 2px;
+
+    color: #e0c27b;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.8);
+
+    min-height: 1em;
+
+}
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin: 35px 0;
+
+}
+
+.countdown-item {
+
+    min-width: 68px;
+
+    padding:
+        12px 15px;
+
+    border:
+        1px solid
+        rgba(
+            212,
+            175,
+            55,
+            .28
+        );
+
+    border-radius: 15px;
+
+    background:
+        rgba(
+            10,
+            7,
+            5,
+            .25
+        );
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
+
+    box-shadow:
+        0 5px 25px
+        rgba(0,0,0,.12);
+
+}
+
+.countdown-item span {
+
+    display: block;
+
+    color: var(--champagne);
+
+    font-size: 2rem;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 2px 12px
+        rgba(0,0,0,.8);
+
+}
+
+.countdown-item label {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #e4cb91;
+
+    font-size: .68rem;
+
+    font-family: 'Amiri', serif;
+
+    text-shadow:
+        0 2px 8px
+        rgba(0,0,0,.8);
+
+}
+
+
+/* =========================================================
+   EVENT INFO
+========================================================= */
+
+.event-info {
+
+    font-family:
+        'Amiri',
+        serif;
+
+    font-size: 1.1rem;
+
+    line-height: 2.1;
+
+    color: #fff3db;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.8);
+
+}
+
+.location-name {
+
+    color: #e1c37b;
+
+}
+
+
+/* =========================================================
+   MAP BUTTON
+========================================================= */
+
+.btn-location {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding:
+        13px 35px;
+
+    border-radius: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+
+            #d4af37,
+
+            #a98332
+        );
+
+    color: #17110b;
+
+    text-decoration: none;
+
+    font-family: 'Amiri', serif;
+
+    font-size: .95rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 0 30px
+        rgba(212,175,55,.2);
+
+    transition:
+        transform .3s ease;
+
+}
+
+.btn-location:active {
+
+    transform: scale(.95);
+
+}
+
+
+/* =========================================================
+   SCHEDULE (فقرات الحفل)
+========================================================= */
+
+.schedule-list {
+
+    max-width: 480px;
+
+    margin: 30px auto 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+.schedule-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 16px 20px;
+
+    border: 1px solid rgba(212,175,55,.28);
+
+    border-radius: 15px;
+
+    background: rgba(10,7,5,.25);
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
+
+    text-align: right;
+
+}
+
+.schedule-time {
+
+    direction: ltr;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.2rem;
+
+    color: var(--champagne);
+
+    min-width: 58px;
+
+}
+
+.schedule-text {
+
+    font-family: 'Amiri', serif;
+
+    font-size: 1.02rem;
+
+    color: #fff3db;
+
+    line-height: 1.8;
+
+}
+
+.schedule-end-note {
+
+    margin-top: 22px;
+
+    font-family: 'Amiri', serif;
+
+    font-size: .95rem;
+
+    color: #e0c27b;
+
+}
+
+
+/* =========================================================
+   NOTES (ملحوظات)
+========================================================= */
+
+.notes-block {
+
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+.note-item {
+
+    margin-top: 26px;
+
+    font-family: 'Amiri', serif;
+
+    font-size: 1rem;
+
+    line-height: 2;
+
+    color: #fff3db;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,.8);
+
+}
+
+.dress-row {
+
+    display: flex;
+
+    gap: 16px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+
+}
+
+.dress-card {
+
+    flex: 1;
+
+    min-width: 190px;
+
+    padding: 20px 16px;
+
+    border: 1px solid rgba(212,175,55,.28);
+
+    border-radius: 15px;
+
+    background: rgba(10,7,5,.25);
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
+
+}
+
+.dress-card h4 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 1.05rem;
+
+    color: var(--champagne);
+
+    margin-bottom: 10px;
+
+}
+
+.dress-card p {
+
+    font-family: 'Amiri', serif;
+
+    font-size: .95rem;
+
+    color: #e4cb91;
+
+    line-height: 1.8;
+
+}
+
+.swatches {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    justify-content: center;
+
+}
+
+.swatch {
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-player {
+
+    position: fixed;
+
+    top: 18px;
+
+    left: 18px;
+
+    z-index: 100;
+
+    padding:
+        7px 15px;
+
+    border:
+        1px solid
+        rgba(
+            212,
+            175,
+            55,
+            .65
+        );
+
+    border-radius: 50px;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .35
+        );
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color: var(--champagne);
+
+    font-size: .7rem;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity .5s ease;
+
+    cursor: pointer;
+
+}
+
+.music-player.visible {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+.music-player:active {
+
+    transform: scale(.92);
+
+}
+
+
+/* =========================================================
+   PETALS
+========================================================= */
+
+#petals-container {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        opacity 2s ease;
+
+}
+
+#petals-container.show {
+
+    opacity: 1;
+
+}
+
+.petal {
+
+    position: absolute;
+
+    top: -10%;
+
+    color: var(--gold);
+
+    font-size: 1.3rem;
+
+    opacity: .20;
+
+    animation:
+        fall
+        linear
+        infinite;
+
+    text-shadow:
+        0 0 10px
+        rgba(212,175,55,.4);
+
+}
+
+@keyframes fall {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+
+        opacity: .35;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg)
+            scale(.1);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   FALLING PARTICLES
+========================================================= */
+
+.falling-particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease;
+
+}
+
+.falling-particles.show {
+
+    opacity: 1;
+
+}
+
+.fall-item {
+
+    position: absolute;
+
+    top: -20px;
+
+    animation:
+        fallDown
+        linear
+        forwards;
+
+    opacity: .65;
+
+    text-shadow:
+        0 0 12px
+        rgba(212,175,55,.5);
+
+}
+
+@keyframes fallDown {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(.8);
+
+        opacity: .6;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg)
+            scale(.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .cover-small {
+
+        font-size: .72rem;
+
+    }
+
+    .cover-names {
+
+        font-size: 4rem;
+
+    }
+
+    .btn-open {
+
+        padding:
+            13px 28px;
+
+        font-size: .85rem;
+
+    }
+
+    .welcome-overlay h1 {
+
+        font-size: 1.45rem;
+
+        letter-spacing: 2px;
+
+    }
+
+    .inner-content {
+
+        padding:
+            65px 18px 90px;
+
+    }
+
+    .inner-content h2 {
+
+        font-size: 3.2rem;
+
+    }
+
+    .countdown-item {
+
+        min-width: 55px;
+
+        padding:
+            9px 10px;
+
+    }
+
+    .countdown-item span {
+
+        font-size: 1.6rem;
+
+    }
+
+    .schedule-row {
+
+        padding: 14px 16px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .cover-names {
+
+        font-size: 3.5rem;
+
+    }
+
+    .inner-content h2 {
+
+        font-size: 2.9rem;
+
+    }
+
+    .countdown {
+
+        gap: 6px;
+
+    }
+
+    .countdown-item {
+
+        min-width: 48px;
+
+        padding:
+            7px 8px;
+
+    }
+
+    .countdown-item span {
+
+        font-size: 1.4rem;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND VIDEO — غيّري اسم الملف "background-video.mp4"
+     بفيديو الخلفية بتاعكم
+===================================================== -->
+
+<video id="bg-layer" autoplay muted loop playsinline>
+
+    <source src="background-video.mp4" type="video/mp4">
+
+</video>
+
+<div id="bg-overlay"></div>
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<div
+    class="welcome-overlay"
+    id="welcomeOverlay">
+
+    <h1>
+        فصل جديد يبدأ
+    </h1>
+
+</div>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
+
+<div
+    class="falling-particles"
+    id="fallingParticles">
+</div>
+
+
+<div
+    id="petals-container">
+</div>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<div
+    class="music-player"
+    id="musicToggle">
+
+    ♫ صوت
+
+</div>
+
+
+<audio
+    id="bgMusic"
+    preload="auto"
+    loop>
+
+    <source
+        src="song.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- =====================================================
+     COVER
+===================================================== -->
+
+<div
+    class="cover"
+    id="cover">
+
+    <div
+        class="cover-content">
+
+
+        <div
+            class="cover-small">
+
+            بمعية أسرتيهما الكريمتين
+
+        </div>
+
+
+        <div
+            class="cover-names">
+
+            Karem &amp; Arwa
+
+        </div>
+
+
+        <button
+            class="btn-open"
+            id="openBtn">
+
+            <span>
+                افتحوا الدعوة
+            </span>
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PULL UP
+===================================================== -->
+
+<div
+    class="swipe-hint"
+    id="swipeHint">
+
+    <div
+        class="swipe-arrow">
+
+        ↑
+
+    </div>
+
+    <div
+        class="swipe-title">
+
+        اسحبوا لأعلى
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     INVITATION
+===================================================== -->
+
+<div
+    class="inner-content"
+    id="innerContent">
+
+
+    <h2>
+
+        Karem &amp; Arwa
+
+    </h2>
+
+
+    <p
+        class="sub-date">
+
+        21 . 09 . 2026
+
+    </p>
+
+
+    <div
+        class="divider">
+    </div>
+
+
+    <div
+        class="message">
+
+        «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+        وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»
+
+    </div>
+
+
+    <!-- COUNTDOWN -->
+
+    <p
+        class="countdown-status"
+        id="countdownStatus">
+    </p>
+
+    <div
+        class="countdown"
+        id="countdown">
+
+
+        <div
+            class="countdown-item">
+
+            <span id="days">
+                00
+            </span>
+
+            <label>
+                يوم
+            </label>
+
+        </div>
+
+
+        <div
+            class="countdown-item">
+
+            <span id="hours">
+                00
+            </span>
+
+            <label>
+                ساعة
+            </label>
+
+        </div>
+
+
+        <div
+            class="countdown-item">
+
+            <span id="minutes">
+                00
+            </span>
+
+            <label>
+                دقيقة
+            </label>
+
+        </div>
+
+
+        <div
+            class="countdown-item">
+
+            <span id="seconds">
+                00
+            </span>
+
+            <label>
+                ثانية
+            </label>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        class="divider">
+    </div>
+
+
+    <!-- EVENT INFO -->
+
+    <div
+        class="event-info">
+
+        <p>
+            الإثنين، 21 سبتمبر 2026
+        </p>
+
+        <p>
+            الساعة 4:30 مساءً
+        </p>
+
+        <p
+            class="location-name">
+
+            نادي التجاريين — قاعة أوبن إير 2
+
+        </p>
+
+        <p>
+            الإسكندرية، ستانلي
+        </p>
+
+    </div>
+
+
+    <!-- MAP -->
+
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=%D9%86%D8%A7%D8%AF%D9%8A%20%D8%A7%D9%84%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%D9%8A%D9%86%20%D8%B3%D8%AA%D8%A7%D9%86%D9%84%D9%8A%20%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9"
+        target="_blank"
+        class="btn-location">
+
+        افتح الموقع على الخريطة
+
+    </a>
+
+
+    <div
+        class="divider">
+    </div>
+
+
+    <!-- SCHEDULE -->
+
+    <h3 class="section-heading">فقرات الحفل</h3>
+
+    <div class="schedule-list">
+
+        <div class="schedule-row">
+            <span class="schedule-time">5:00</span>
+            <span class="schedule-text">عقد القران والاستماع إلى كلمة المأذون</span>
+        </div>
+
+        <div class="schedule-row">
+            <span class="schedule-time">6:00</span>
+            <span class="schedule-text">عشاء احتفالي</span>
+        </div>
+
+        <div class="schedule-row">
+            <span class="schedule-time">6:30</span>
+            <span class="schedule-text">فقرة التقاط الصور مع العروسين والأهل والأصدقاء</span>
+        </div>
+
+        <div class="schedule-row">
+            <span class="schedule-time">7:30</span>
+            <span class="schedule-text">ختام الحفل</span>
+        </div>
+
+    </div>
+
+    <p class="schedule-end-note">ينتهي الحفل في تمام الساعة السابعة والنصف مساءً</p>
+
+
+    <div
+        class="divider">
+    </div>
+
+
+    <!-- NOTES -->
+
+    <h3 class="section-heading">ملحوظات</h3>
+
+    <div class="notes-block">
+
+        <p class="note-item">
+            أغاني الحفل بدون موسيقى، وقد حددها العروسان مسبقًا مع إدارة القاعة.
+            رجاءً عدم طلب تغييرها من أحد المشرفين.
+        </p>
+
+        <p class="note-item" style="margin-bottom:0;">
+            الزي الموحد (Dress code)
+        </p>
+
+        <div class="dress-row">
+
+            <div class="dress-card">
+                <h4>للسيدات</h4>
+                <p>بلوزة وتنورة بيضاء، أو أي زي أبيض اللون</p>
+                <div class="swatches">
+                    <span class="swatch" style="background:#f6e7c1;"></span>
+                </div>
+            </div>
+
+            <div class="dress-card">
+                <h4>للرجال</h4>
+                <p>رمادي، أبيض، أو بيچ</p>
+                <div class="swatches">
+                    <span class="swatch" style="background:#8f8f8f;"></span>
+                    <span class="swatch" style="background:#f6e7c1;"></span>
+                    <span class="swatch" style="background:#d6c6a1;"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+(function () {
+
+    'use strict';
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const bgLayer =
+        document.getElementById(
+            'bg-layer'
+        );
+
+    const welcomeOverlay =
+        document.getElementById(
+            'welcomeOverlay'
+        );
+
+    const fallingParticles =
+        document.getElementById(
+            'fallingParticles'
+        );
+
+    const petalsContainer =
+        document.getElementById(
+            'petals-container'
+        );
+
+    const musicToggle =
+        document.getElementById(
+            'musicToggle'
+        );
+
+    const bgMusic =
+        document.getElementById(
+            'bgMusic'
+        );
+
+    const cover =
+        document.getElementById(
+            'cover'
+        );
+
+    const openBtn =
+        document.getElementById(
+            'openBtn'
+        );
+
+    const innerContent =
+        document.getElementById(
+            'innerContent'
+        );
+
+    const swipeHint =
+        document.getElementById(
+            'swipeHint'
+        );
+
+
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+
+    let isOpened = false;
+
+    let invitationRevealed = false;
+
+    let isPlaying = false;
+
+    let fallingInterval = null;
+
+    let touchStartY = 0;
+
+    let touchEndY = 0;
+
+
+    /* =====================================================
+       BACKGROUND VIDEO — GUARANTEED LOOP
+       (fallback in case a browser ignores the loop attribute)
+    ===================================================== */
+
+    if (bgLayer) {
+
+        bgLayer.addEventListener(
+            'ended',
+            function () {
+
+                bgLayer.currentTime = 0;
+
+                bgLayer.play().catch(
+                    function () {}
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PETALS
+    ===================================================== */
+
+    function createPetals() {
+
+        const symbols = [
+            '✦',
+            '✧',
+            '❋',
+            '✶',
+            '♡'
+        ];
+
+        for (
+            let i = 0;
+            i < 25;
+            i++
+        ) {
+
+            const petal =
+                document.createElement(
+                    'div'
+                );
+
+            petal.className =
+                'petal';
+
+            petal.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+            petal.style.left =
+                Math.random() *
+                100 +
+                '%';
+
+            petal.style.fontSize =
+                (
+                    Math.random() *
+                    1.5 +
+                    .8
+                ) +
+                'rem';
+
+            petal.style.animationDuration =
+                (
+                    Math.random() *
+                    14 +
+                    10
+                ) +
+                's';
+
+            petal.style.animationDelay =
+                (
+                    Math.random() *
+                    15
+                ) +
+                's';
+
+            petalsContainer.appendChild(
+                petal
+            );
+
+        }
+
+    }
+
+    createPetals();
+
+
+    /* =====================================================
+       COUNTDOWN / COUNT-UP
+    ===================================================== */
+
+    function updateCountdown() {
+
+        const target =
+            new Date(
+                '2026-09-21T16:30:00'
+            ).getTime();
+
+        const diff =
+            target -
+            Date.now();
+
+        const isPast =
+            diff <= 0;
+
+        /*
+           Once the event has passed,
+           switch to counting UP
+           (time elapsed since the event)
+           instead of freezing at 00.
+        */
+        const elapsed =
+            Math.abs(diff);
+
+
+        const days =
+            Math.floor(
+                elapsed /
+                86400000
+            );
+
+
+        const hours =
+            Math.floor(
+                (
+                    elapsed %
+                    86400000
+                ) /
+                3600000
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    elapsed %
+                    3600000
+                ) /
+                60000
+            );
+
+
+        const seconds =
+            Math.floor(
+                (
+                    elapsed %
+                    60000
+                ) /
+                1000
+            );
+
+
+        document.getElementById(
+            'days'
+        ).textContent =
+            String(days)
+                .padStart(2, '0');
+
+
+        document.getElementById(
+            'hours'
+        ).textContent =
+            String(hours)
+                .padStart(2, '0');
+
+
+        document.getElementById(
+            'minutes'
+        ).textContent =
+            String(minutes)
+                .padStart(2, '0');
+
+
+        document.getElementById(
+            'seconds'
+        ).textContent =
+            String(seconds)
+                .padStart(2, '0');
+
+
+        /* Status label above the numbers */
+
+        const statusEl =
+            document.getElementById(
+                'countdownStatus'
+            );
+
+        if (statusEl) {
+
+            statusEl.textContent =
+                isPast ?
+                    'من يوم الفرح ♥' :
+                    'متبقي على الفرح';
+
+        }
+
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
+
+    /* =====================================================
+       FALLING PARTICLES
+    ===================================================== */
+
+    function startFallingParticles() {
+
+        const symbols = [
+            '✨',
+            '✦',
+            '✧',
+            '♡'
+        ];
+
+
+        if (fallingInterval) {
+
+            clearInterval(
+                fallingInterval
+            );
+
+        }
+
+
+        fallingParticles.innerHTML =
+            '';
+
+
+        fallingInterval =
+            setInterval(
+                function () {
+
+                    const element =
+                        document.createElement(
+                            'div'
+                        );
+
+
+                    element.className =
+                        'fall-item';
+
+
+                    element.textContent =
+                        symbols[
+                            Math.floor(
+                                Math.random() *
+                                symbols.length
+                            )
+                        ];
+
+
+                    element.style.left =
+                        Math.random() *
+                        100 +
+                        '%';
+
+
+                    element.style.fontSize =
+                        (
+                            Math.random() *
+                            .7 +
+                            .5
+                        ) +
+                        'rem';
+
+
+                    element.style.animationDuration =
+                        (
+                            Math.random() *
+                            4 +
+                            3
+                        ) +
+                        's';
+
+
+                    element.style.color =
+                        [
+                            '#d4af37',
+                            '#f4e4bd',
+                            '#ffffff',
+                            '#c9a85d'
+                        ][
+                            Math.floor(
+                                Math.random() *
+                                4
+                            )
+                        ];
+
+
+                    fallingParticles.appendChild(
+                        element
+                    );
+
+
+                    setTimeout(
+                        function () {
+
+                            if (
+                                element.parentNode
+                            ) {
+
+                                element.remove();
+
+                            }
+
+                        },
+                        7000
+                    );
+
+
+                },
+                300
+            );
+
+    }
+
+
+    /* =====================================================
+       OPEN INVITATION
+    ===================================================== */
+
+    function openInvitation(event) {
+
+        if (event) {
+
+            event.preventDefault();
+
+        }
+
+
+        if (isOpened) {
+
+            return;
+
+        }
+
+
+        isOpened = true;
+
+
+        openBtn.style.opacity =
+            '0';
+
+        openBtn.style.pointerEvents =
+            'none';
+
+
+        /* Background */
+
+        bgLayer.classList.add(
+            'show'
+        );
+
+        welcomeOverlay.classList.add(
+            'show'
+        );
+
+        petalsContainer.classList.add(
+            'show'
+        );
+
+        fallingParticles.classList.add(
+            'show'
+        );
+
+
+        startFallingParticles();
+
+
+        /* Music */
+
+        bgMusic.play()
+            .then(
+                function () {
+
+                    isPlaying =
+                        true;
+
+                }
+            )
+            .catch(
+                function () {
+
+                    isPlaying =
+                        false;
+
+                }
+            );
+
+
+        musicToggle.classList.add(
+            'visible'
+        );
+
+
+        /* Hide cover */
+
+        setTimeout(
+            function () {
+
+                cover.classList.add(
+                    'hidden'
+                );
+
+            },
+            300
+        );
+
+
+        /* Hide welcome */
+
+        setTimeout(
+            function () {
+
+                welcomeOverlay.classList.remove(
+                    'show'
+                );
+
+            },
+            1600
+        );
+
+
+        /*
+        =====================================================
+        IMPORTANT
+
+        Pull Up is ONLY an instruction.
+
+        User can swipe immediately.
+        =====================================================
+        */
+
+        setTimeout(
+            function () {
+
+                if (
+                    !invitationRevealed
+                ) {
+
+                    swipeHint.classList.add(
+                        'show'
+                    );
+
+                }
+
+            },
+            900
+        );
+
+    }
+
+
+    /* =====================================================
+       OPEN BUTTON
+    ===================================================== */
+
+    openBtn.addEventListener(
+        'click',
+        openInvitation
+    );
+
+
+    /* =====================================================
+       TOUCH START
+       ENABLED IMMEDIATELY
+    ===================================================== */
+
+    document.addEventListener(
+        'touchstart',
+        function (event) {
+
+            if (
+                !isOpened ||
+                invitationRevealed
+            ) {
+
+                return;
+
+            }
+
+
+            touchStartY =
+                event.changedTouches[0]
+                    .screenY;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       TOUCH MOVE
+    ===================================================== */
+
+    document.addEventListener(
+        'touchmove',
+        function (event) {
+
+            if (
+                !isOpened ||
+                invitationRevealed
+            ) {
+
+                return;
+
+            }
+
+
+            touchEndY =
+                event.changedTouches[0]
+                    .screenY;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       TOUCH END
+    ===================================================== */
+
+    document.addEventListener(
+        'touchend',
+        function (event) {
+
+            if (
+                !isOpened ||
+                invitationRevealed
+            ) {
+
+                return;
+
+            }
+
+
+            touchEndY =
+                event.changedTouches[0]
+                    .screenY;
+
+
+            const swipeDistance =
+                touchStartY -
+                touchEndY;
+
+
+            /*
+              Only 30px upward swipe required.
+              No need to wait for Pull Up.
+            */
+
+            if (
+                swipeDistance >= 30
+            ) {
+
+                revealInvitation();
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* =====================================================
+       REVEAL INVITATION
+    ===================================================== */
+
+    function revealInvitation() {
+
+        if (
+            !isOpened ||
+            invitationRevealed
+        ) {
+
+            return;
+
+        }
+
+
+        invitationRevealed =
+            true;
+
+
+        /* Hide instruction */
+
+        swipeHint.classList.remove(
+            'show'
+        );
+
+
+        /* Show invitation */
+
+        innerContent.classList.add(
+            'visible'
+        );
+
+
+        /* Enable scrolling */
+
+        setTimeout(
+            function () {
+
+                document.body.style.overflow =
+                    'auto';
+
+            },
+            1000
+        );
+
+    }
+
+
+    /* =====================================================
+       MUSIC ON / OFF
+    ===================================================== */
+
+    musicToggle.addEventListener(
+        'click',
+        function (event) {
+
+            event.stopPropagation();
+
+
+            if (isPlaying) {
+
+                bgMusic.pause();
+
+                isPlaying =
+                    false;
+
+            }
+
+            else {
+
+                bgMusic.play()
+                    .then(
+                        function () {
+
+                            isPlaying =
+                                true;
+
+                        }
+                    )
+                    .catch(
+                        function () {}
+                    );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       VISIBILITY
+    ===================================================== */
+
+    document.addEventListener(
+        'visibilitychange',
+        function () {
+
+            if (
+                !document.hidden &&
+                isOpened &&
+                isPlaying
+            ) {
+
+                bgMusic.play()
+                    .catch(
+                        function () {}
+                    );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       INITIAL STATE
+    ===================================================== */
+
+    document.body.style.overflow =
+        'hidden';
+
+    innerContent.style.marginTop =
+        '100vh';
+
+
+})();
+
+</script>
+
+
+</body>
+
+</html>
